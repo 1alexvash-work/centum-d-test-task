@@ -13,7 +13,7 @@ import { useState } from "react";
 import { FormState, saveServer } from "./functions";
 
 const Home = () => {
-  const [price, setPrice] = useState<number>(42);
+  const [price, setPrice] = useState<null | number>(null);
 
   const [formState, setFormState] = useState<FormState>({
     discounts: {
@@ -111,7 +111,9 @@ const Home = () => {
           />
           Strong car surcharge
         </label>
-        <div className="font-bold">Total price: {price}</div>
+        <div className="font-bold">
+          {price ? `Total price: ${price}` : "Total price is not calculated"}
+        </div>
       </header>
       <main className="mt-4 p-4 shadow-md flex justify-between">
         <div className="p-4 shadow-md">
