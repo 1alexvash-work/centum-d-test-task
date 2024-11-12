@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { saveServer } from "./functions";
 
 const Home = () => {
+  const [price, setPrice] = useState(42);
+
   const saveClient = () => {
-    alert(saveServer());
+    const result = saveServer();
+    setPrice(result);
   };
 
   return (
@@ -26,7 +30,7 @@ const Home = () => {
           <input type="checkbox" className="size-4 mr-1" />
           Strong car surcharge
         </label>
-        <div className="font-bold">Total price: 42</div>
+        <div className="font-bold">Total price: {price}</div>
       </header>
       <main className="mt-4 p-4 shadow-md flex justify-between">
         <div className="p-4 shadow-md">
